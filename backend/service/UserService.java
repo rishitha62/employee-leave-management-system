@@ -11,9 +11,9 @@ public class UserService {
     public User findByUsername(String username) {
         return DataStore.users.values()
                 .stream()
-                .filter(u => u.getUsername().equals(username))
-                .findAny()
-               .orElse(null);
+                .filter(u -> u.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
     }
 
     public User findById(String id) {
@@ -22,7 +22,7 @@ public class UserService {
 
     public List<User> getAllEmployeesUnderManager(String managerId) {
         return DataStore.users.values().stream()
-            .filter(u => "EMPLOYEE".equals(u.getRole()) && managerId.equals(u.getManagerId()))
-            .collect((Collectors.toList());
+            .filter(u -> "EMPLOYEE".equals(u.getRole()) && managerId.equals(u.getManagerId()))
+            .collect(Objects::toList);
     }
 }
