@@ -1,10 +1,8 @@
 package com.leavemanagement.service;
-
-Import com.leavemanagement.model.AuditLog;
+import com.leavemanagement.model.AuditLog;
 import com.leavemanagement.store.DataStore;
-
 import java.util.List;
-Import java.util.stream.Collectors;
+import java.util.stream.Collectors;
 
 public class AuditService {
     public void log(AuditLog log) {
@@ -17,7 +15,7 @@ public class AuditService {
 
     public List<AuditLog> getLogsForUser(String userId) {
         return DataStore.auditLogs.stream()
-            .filter(l => l.getUserId().equals(userId))
-            .collect(Collectors.toList());
+            .filter(l -> l.getUserId().equals(userId))
+            .collect(Collectors.tlist);
     }
 }
